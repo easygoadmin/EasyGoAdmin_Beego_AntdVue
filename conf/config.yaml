@@ -8,7 +8,7 @@ redis:
 mysql:
   host: '127.0.0.1'
   port: 3306
-  database: 'easygoadmin.beego.elevue'
+  database: 'easygoadmin.beego.antdvue'
   username: 'root'
   password: ''
 
@@ -29,4 +29,4 @@ easygoadmin:
   # 调试模式
   debug: false
   # 图片域名
-  image: "http://images.beego.elevue"
+  image: "http://images.beego.antdvue"
