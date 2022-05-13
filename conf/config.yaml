@@ -1,0 +1,32 @@
+# Redis 缓存配置
+redis:
+  db: 0
+  addr: '127.0.0.1:6379'
+  password: ''
+
+# MySQL 连接配置
+mysql:
+  host: '127.0.0.1'
+  port: 3306
+  database: 'easygoadmin.beego.elevue'
+  username: 'root'
+  password: ''
+
+# 文件上传
+attachment:
+  # 文件存储路径
+  file_path: 'D:\\uploads'
+  # 上传文件最大值
+  file_size: 52428800
+  # 允许上传文件后缀
+  file_ext: 'bmp,ico,psd,jpg,jpeg,png,gif,doc,docx,xls,xlsx,pdf,zip,rar,7z,tz,mp3,mp4,mov,swf,flv,avi,mpg,ogg,wav,flac,ape'
+
+
+# 系统配置
+easygoadmin:
+  # 版本号
+  version: "v2.0.0"
+  # 调试模式
+  debug: false
+  # 图片域名
+  image: "http://images.beego.elevue"
