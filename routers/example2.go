@@ -24,7 +24,7 @@
 /**
  * 演示二-路由
  * @author 半城风雨
- * @since 2022-05-13
+ * @since 2022-05-14
  * @File : example2
  */
 package routers
@@ -45,5 +45,5 @@ func init() {
 	beego.Router("/example2/update", &controllers.Example2Controller{}, "put:Update")
 	beego.Router("/example2/delete/:id", &controllers.Example2Controller{}, "delete:Delete")
 
-	beego.Router("/example2/setStatus", &controllers.Example2Controller{}, "put:Status")
+	beego.Router("/example2/status", &controllers.Example2Controller{}, "put:Status")
 }

@@ -113,7 +113,7 @@ func (s *memberService) Add(req dto.MemberAddReq, userId int) (int64, error) {
 	entity.Nickname = req.Nickname
 	entity.Gender = req.Gender
 	// 日期处理
-	tm2, _ := time.Parse("01/02/2006", req.Birthday)
+	tm2, _ := time.Parse("2006-01-02", req.Birthday)
 	entity.Birthday = tm2
 	entity.Address = req.Address
 	entity.Intro = req.Intro
@@ -170,7 +170,7 @@ func (s *memberService) Update(req dto.MemberUpdateReq, userId int) (int64, erro
 	entity.Nickname = req.Nickname
 	entity.Gender = req.Gender
 	// 日期处理
-	tm2, _ := time.Parse("01/02/2006", req.Birthday)
+	tm2, _ := time.Parse("2006-01-02", req.Birthday)
 	entity.Birthday = tm2
 	entity.Address = req.Address
 	entity.Intro = req.Intro

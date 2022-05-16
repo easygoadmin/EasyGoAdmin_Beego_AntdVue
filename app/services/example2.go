@@ -24,7 +24,7 @@
 /**
  * 演示二管理-服务类
  * @author 半城风雨
- * @since 2022-05-13
+ * @since 2022-05-14
  * @File : example2
  */
 package services
@@ -45,23 +45,21 @@ var Example2 = new(example2Service)
 
 type example2Service struct{}
 
-func (s *example2Service) GetList(req dto.Example2PageReq) ([]vo.Example2InfoVo, int64, error) {
+func (s *example2Service) GetList(req dto.Example2PageReq) ([]vo.Example2ListVo, int64, error) {
 	// 初始化查询实例
 	query := orm.NewOrm().QueryTable(new(models.Example2)).Filter("mark", 1)
 
 	// 演示名称
-	
+
 	if req.Name != "" {
 		query = query.Filter("name__contains", req.Name)
 	}
-	
 
 	// 状态：1正常 2停用
-	
+
 	if req.Status > 0 {
 		query = query.Filter("status", req.Status)
 	}
-	
 
 	// 排序
 	query = query.OrderBy("id")
@@ -76,14 +74,11 @@ func (s *example2Service) GetList(req dto.Example2PageReq) ([]vo.Example2InfoVo,
 	query.All(&lists)
 
 	// 数据处理
-	var result []vo.Example2InfoVo
+	var result []vo.Example2ListVo
 	for _, v := range lists {
-		item := vo.Example2InfoVo{}
+		item := vo.Example2ListVo{}
 		item.Example2 = v
-		
-		
-		
-		
+
 		result = append(result, item)
 	}
 
@@ -94,14 +89,13 @@ func (s *example2Service) GetList(req dto.Example2PageReq) ([]vo.Example2InfoVo,
 func (s *example2Service) Add(req dto.Example2AddReq, userId int) (int64, error) {
 	// 实例化对象
 	var entity models.Example2
-	
+
 	entity.Name = req.Name
-	
+
 	entity.Status = req.Status
-	
-	
+
 	entity.Sort = req.Sort
-	
+
 	entity.CreateUser = userId
 	entity.CreateTime = time.Now()
 	entity.UpdateUser = userId
@@ -118,14 +112,13 @@ func (s *example2Service) Update(req dto.Example2UpdateReq, userId int) (int64, 
 	if err != nil {
 		return 0, errors.New("记录不存在")
 	}
-	
+
 	entity.Name = req.Name
-	
+
 	entity.Status = req.Status
-	
-	
+
 	entity.Sort = req.Sort
-	
+
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
 	// 更新记录
@@ -159,23 +152,15 @@ func (s *example2Service) Delete(ids string) (int64, error) {
 	}
 }
 
-
-
-
-
 func (s *example2Service) Status(req dto.Example2StatusReq, userId int) (int64, error) {
 	// 查询记录是否存在
 	entity := &models.Example2{Id: req.Id}
 	err := entity.Get()
 	if err != nil {
-	return 0, errors.New("记录不存在")
+		return 0, errors.New("记录不存在")
 	}
 	entity.Status = req.Status
 	entity.UpdateUser = userId
 	entity.UpdateTime = time.Now()
 	return entity.Update()
 }
-
-
-
-

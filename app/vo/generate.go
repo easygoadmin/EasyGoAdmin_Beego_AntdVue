@@ -34,6 +34,6 @@ type GenerateInfo struct {
 	DataLength    string `json:"data_length"`    // 大小
 	AutoIncrement string `json:"auto_increment"` // 自增索引
 	Comment       string `json:"comment"`        // 表备注
-	CreateTime    string `json:"createTime"`     // 添加时间
-	UpdateTime    string `json:"updateTime"`     // 更新时间
+	CreateTime    string `json:"create_time"`    // 添加时间
+	UpdateTime    string `json:"update_time"`    // 更新时间
 }

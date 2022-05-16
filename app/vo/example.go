@@ -24,18 +24,52 @@
 /**
  * 演示一Vo
  * @author 半城风雨
- * @since 2022-05-13
+ * @since 2022-05-14
  * @File : example
  */
 package vo
 
 import "easygoadmin/app/models"
 
-// 演示一信息Vo
-type ExampleInfoVo struct {
+// 演示一列表Vo
+type ExampleListVo struct {
 	models.Example
 	
 	StatusName int `json:"statusName"` // 状态名称
 	TypeName int `json:"typeName"` // 类型名称
 	IsVipName int `json:"isVipName"` // 是否VIP名称
+}
+
+// 演示一信息Vo
+type ExampleInfoVo struct {	
+	Id     int    `json:"id"`
+
+	
+	Name  string `json:"name"`   // 测试名称
+	
+
+	
+	Avatar  string `json:"avatar"`    // 头像
+	
+
+	
+	Content  string `json:"content"`   // 内容
+	
+
+	
+	Status  int    `json:"status"`    // 状态：1正常 2停用
+	
+
+	
+	Type  int    `json:"type"`    // 类型：1京东 2淘宝 3拼多多 4唯品会
+	
+
+	
+	IsVip  int    `json:"isVip"`    // 是否VIP：1是 2否
+	
+
+	
+	Sort  int    `json:"sort"`    // 排序号
+	
+
 }

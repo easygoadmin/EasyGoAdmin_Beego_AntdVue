@@ -300,7 +300,6 @@ func (s *menuService) GetPermissionMenuList(userId int) interface{} {
 		var menuNode vo.MenuTreeNode
 		makeTree(list, &menuNode)
 		return menuNode.Children
-		return nil
 	}
 }
 

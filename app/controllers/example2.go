@@ -24,7 +24,7 @@
 /**
  * 演示二管理-控制器
  * @author 半城风雨
- * @since 2022-05-13
+ * @since 2022-05-14
  * @File : example2
  */
 package controllers
@@ -77,7 +77,7 @@ func (ctl *Example2Controller) List() {
 
 func (ctl *Example2Controller) Detail() {
 	// 记录ID
-	id, _ := ctl.GetInt("id", 0)
+	id, _ := ctl.GetInt(":id", 0)
 	if id > 0 {
 		// 编辑
 		info := &models.Example2{Id: id}
@@ -170,7 +170,7 @@ func (ctl *Example2Controller) Update() {
 
 func (ctl *Example2Controller) Delete() {
 	// 记录ID
-	ids := ctl.GetString("id")
+	ids := ctl.GetString(":id")
 	if ids == "" {
 		ctl.JSON(common.JsonResult{
 			Code: -1,
